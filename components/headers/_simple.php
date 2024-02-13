@@ -19,35 +19,8 @@
  */
 ?>
 
-<div class="bg-white-gradient">
+<div class="bg-white-gradient h-52 relative">
     <div class="content-middle text-center">
-        <h1 class="text-white text-3xl md:text-5xl font-bold uppercase">
-            <?php
-            // This enables simple_title to work regardless of its a top level field or a subfield in flex content
-            if(get_sub_field('simple_title')): the_sub_field('simple_title');
-            elseif(get_field('simple_title')): the_field('simple_title');
-            endif;
-            ?>
-        </h1>
+        <h2 class="text-black text-xl md:text-5xl font-bold uppercase"><?php echo get_the_title(); ?></h2>
     </div>
 </div>
-
-<!--
-Textured background?
-<div class="bg-white-gradient">
-    <div class="bg-no-repeat bg-scroll bg-cover relative"
-         style="background:
-                 url('<?php /*echo get_template_directory_uri(); */?>/assets/src/img/topography.png') center center;
-                 height: 20vh;">
-        <div class="content-middle text-center">
-            <h1 class="text-white text-3xl md:text-5xl font-bold uppercase">
-                <?php
-/*                // This enables simple_title to work regardless of its a top level field or a subfield in flex content
-                if(get_sub_field('simple_title')): the_sub_field('simple_title');
-                elseif(get_field('simple_title')): the_field('simple_title');
-                endif;
-                */?>
-            </h1>
-        </div>
-    </div>
-</div>-->
