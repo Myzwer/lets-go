@@ -2,7 +2,7 @@
 /**
  * Template Name: Custom - Front Page
  *
- * The Frontpage of the PreLaunch Theme
+ * The Frontpage of the Lets Go BBY Theme
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
