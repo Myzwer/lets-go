@@ -51,3 +51,39 @@
   src: url("../../webfonts/GothamBlack-Italic.woff2") format("woff2"),
     url("../../webfonts/GothamBlack-Italic.woff") format("woff");
 }
+
+@font-face {
+  font-display: swap;
+  font-family: "Druk Text Wide";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../../webfonts/DrukTextWide-Bold.woff2") format("woff2"),
+    url("../../webfonts/DrukTextWide-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Druk Text Wide Super";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../webfonts/DrukTextWide-Super.woff2") format("woff2"),
+    url("../../webfonts/DrukTextWide-Super.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Druk Text Wide";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../webfonts/DrukTextWide-Medium.woff2") format("woff2"),
+    url("../../webfonts/DrukTextWide-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Druk Text Wide";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../../webfonts/DrukTextWide-Heavy.woff2") format("woff2"),
+    url("../../webfonts/DrukTextWide-Heavy.woff") format("woff");
+}
