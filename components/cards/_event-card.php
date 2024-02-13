@@ -20,11 +20,6 @@
     <?php endif; ?>
     <div class="p-5 flex-grow">
         <h2 class="text-xl md:text-2xl font-bold capitalize"><?php the_title(); ?></h2>
-        <?php
-        $subtitle = get_post_meta(get_the_ID(), 'subtitle_meta_key', true);
-        if ($subtitle) : ?>
-            <h3 class="text-lg"><?php echo esc_html($subtitle); ?></h3>
-        <?php endif; ?>
         <p class="pb-3"><?php the_excerpt(); ?></p>
         <div class="grid grid-cols-12 pt-10">
 
@@ -53,6 +48,14 @@
                 </div>
                 <h4>Outdoor Event</h4>
             </div>
+
+<?php
+// Display total spaces remaining for this event
+//echo '<p>Total spaces remaining: ' . get_post_meta(get_the_ID(), '????', true) . '</p>';
+?>
+
+
+
 
 
         </div>

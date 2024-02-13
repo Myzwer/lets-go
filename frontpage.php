@@ -33,9 +33,11 @@ get_header(); ?>
         <div class="col-span-12 xl:col-span-4 xl:col-span-4 mx-5">
             <div class="bg-white p-5 rounded-xl shadow-xl">
                 <h3 class="capitalize font-bold text-3xl pb-3">Filter Events</h3>
+                <div id="primary">
                 <?php
                 echo do_shortcode('[fe_widget]');
                 ?>
+                </div>
             </div>
         </div>
 
