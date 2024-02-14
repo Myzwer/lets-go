@@ -25,11 +25,11 @@
 $content-width: 2000px; // How wide or narrow do you want the bar to be?
 $breakpoint: 1101px; // When do you want to switch from mobile to desktop?
 $nav-height: 85px; // How tall do you want the navbar to be?
-$nav-background: #333333; // What background color do you want?
+$nav-background: #4c52c7; // What background color do you want?
 $nav-font-color: #fafafa; // What primary font color?
 $link-hover-color: #7498be; // What color when you hover?
-$button-color: #fafafa; // What background color do you want the button to be?
-$button-hover-color: #eaeaea; // What hover color do you want the button to be?
+$button-color: #d58163; // What background color do you want the button to be?
+$button-hover-color: #d77653; // What hover color do you want the button to be?
 
 // Sets the initial height and color of the navbar
 .navigation {
@@ -251,8 +251,10 @@ nav {
 .nav-list > li:last-of-type {
   align-self: center;
   background-color: $button-color;
-  color: #333333;
+  color: #ffffff;
   cursor: pointer;
+  font-family: "Druk Text Wide", sans-serif;
+
   letter-spacing: 1px;
   text-align: center;
   text-transform: uppercase;
@@ -261,7 +263,7 @@ nav {
 
 .nav-list > li:last-of-type a {
   background-color: rgba(0, 0, 0, 0);
-  color: #234058;
+  color: #ffffff;
   font-weight: 600;
   padding: 8px 20px 15px;
 }
@@ -275,7 +277,7 @@ nav {
 
 .nav-list > li:last-of-type:hover a {
   background-color: rgba(0, 0, 0, 0);
-  color: #234058;
+  color: #ffffff;
 }
 
 .nav-list > li:last-of-type:hover {
@@ -289,12 +291,12 @@ nav {
 // When not in hamburger menu
 @media screen and (min-width: $breakpoint) {
   .nav-list > li:last-of-type {
+    border: 2px solid #222222;
     border-radius: 20px;
+    font-size: 0.8em;
     margin-left: 6px;
     margin-right: 10px;
     margin-top: 22px;
-    // LEFT ALIGN? DELETE THE POSITION
-
     right: 0;
   }
 
