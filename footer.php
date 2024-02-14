@@ -12,7 +12,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Bootcamp_2
+ * @subpackage Lets_Go_BBY
  * @since 1.0.0
  */
 ?>
