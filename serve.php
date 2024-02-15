@@ -13,18 +13,7 @@
  */
 
 get_header(); ?>
-    <video class="header-video" src="https://foothillscollective.com/wp-content/uploads/2021/04/Res-Power-Background.mp4" autoplay loop playsinline muted></video>
 
-    <div class="viewport-header">
-        <div class="head-container">
-            <div class="center add-padding">
-                <h1 class="text-white text-5xl pb-5">Header Title</h1>
-            </div>
-            <hr class="text-white pb-5">
-            <h2 class="text-white text-3xl ">Title</h2>
-            <h3 class="text-white text-2xl">Subtitle</h3>
-        </div>
-    </div>
 
     <!-- Start Body Section -->
     <div class="bg-white-gradient">
@@ -34,7 +23,7 @@ get_header(); ?>
                 <h3 class="capitalize font-bold text-3xl pb-3">Filter Events</h3>
                 <div id="primary">
                     <?php
-                    echo do_shortcode('[fe_widget]');
+//                    echo do_shortcode('[fe_widget]');
                     ?>
                 </div>
             </div>
@@ -45,34 +34,18 @@ get_header(); ?>
             <div class="grid grid-cols-12 gap-4 md:gap-4">
 
                 <?php
-                // WP_Query arguments
-                $args = array(
-                    'post_type' => array('espresso_events'),
-                    'post_status' => array('publish'),
-                    'nopaging' => false,
-                    'order' => 'DESC',
-                    'orderby' => 'date',
-                    'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
-                );
+                // https://github.com/eventespresso/event-espresso-core/blob/master/docs/G--Model-System/model-querying.md
+                $events = EEM_Event::instance()->get_all();
 
-                // The Query
-                $events = new WP_Query($args);
+                foreach( $events as $event ) {
+                    // Pass the $event variable to the template partial
+                    set_query_var( 'event', $event );
 
-                // The Loop
-                if ($events->have_posts()) {
-                    while ($events->have_posts()) {
-                        $events->the_post();
-                        $size_select = array(
-                            'column_span_class' => 'lg:col-span-6'
-                        );
-                        get_template_part('components/cards/_event-card', null, $size_select);
-                    }
-                } else { ?>
-                    <h3 class="text-center font-bold">There are no upcoming events.</h3>
-                    <?php
+                    // Call the card
+                    get_template_part('components/cards/_event-card');
+
                 }
-                // Restore original Post Data
-                wp_reset_postdata();
+
                 ?>
             </div>
         </div>
