@@ -16,31 +16,32 @@ $white-grad-1: rgb(250, 250, 250);
 $white-grad-2: rgb(235, 235, 235);
 $white-hover: #ffffff;
 
-$saltydog: #234058;
-$saltydog-hover: #152c3d;
+$orange: #d58163;
+$orange-hover: #d77653;
 
 $lightblue-grad-1: rgb(204, 219, 229);
 $lightblue-grad-2: rgb(222, 232, 238);
 $lightblue-grad-hover: #bcd1da;
 
 .fab-main {
-  background-color: $saltydog;
+  background-color: $orange;
+  border: 1px solid $black;
   border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   color: $white;
-  font-weight: 800;
+  font-family: "Druk Text Wide", sans-serif;
   padding: 10px 30px;
 }
 
 .fab-main:hover {
-  background-color: $saltydog-hover;
+  background-color: $orange-hover;
 }
 
 .fab-main-white {
   background-color: $white;
   border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-  color: $saltydog;
+  color: $orange;
   font-weight: 800;
   padding: 10px 30px;
 }
@@ -58,7 +59,7 @@ $lightblue-grad-hover: #bcd1da;
   background-color: $lightblue-grad-1;
   border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-  color: $saltydog;
+  color: $orange;
   font-weight: 800;
   padding: 10px 20px;
 }
@@ -74,7 +75,7 @@ $lightblue-grad-hover: #bcd1da;
   background-color: $white-grad-1;
   border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-  color: $saltydog;
+  color: $orange;
   font-weight: 800;
   padding: 10px 20px;
 }
@@ -112,7 +113,7 @@ $lightblue-grad-hover: #bcd1da;
 
 // This is the button used on the single event pages so they stand out a little more
 .elevated-salty {
-  background-color: $saltydog;
+  background-color: $orange;
   border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   color: $white;
