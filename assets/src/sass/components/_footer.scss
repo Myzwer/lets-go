@@ -10,7 +10,7 @@
 */
 
 /* Color Settings */
-$black: #333333;
+$black: #2e3136;
 $white: #fafafa;
 $light-blue: #7498be;
 
@@ -20,8 +20,11 @@ $light-blue: #7498be;
   box-sizing: border-box;
   color: $white;
   font-family: "gotham", sans-serif;
+  margin-top: -3px;
+  position: relative;
   text-align: center;
   width: 100%;
+  z-index: 20;
 
   img {
     margin: 0 auto;
