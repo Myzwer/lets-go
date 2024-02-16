@@ -24,6 +24,7 @@
 @use 'components/filtering';
 @use 'components/event-espresso';
 @use 'components/particles';
+@use 'components/typography';
 
 // This section adds tailwind, but @tailwind isn't recognized so we have to suppress stylelint.
 /* stylelint-disable */
