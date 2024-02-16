@@ -19,6 +19,9 @@ $white-hover: #ffffff;
 $orange: #d58163;
 $orange-hover: #d77653;
 
+$blue: #4c52c7;
+$blue-hover: #3a3fbb;
+
 $lightblue-grad-1: rgb(204, 219, 229);
 $lightblue-grad-2: rgb(222, 232, 238);
 $lightblue-grad-hover: #bcd1da;
@@ -37,17 +40,17 @@ $lightblue-grad-hover: #bcd1da;
   background-color: $orange-hover;
 }
 
-.fab-main-white {
-  background-color: $white;
+.fab-main-blue {
+  background-color: $blue;
   border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-  color: $orange;
+  color: $white;
   font-weight: 800;
   padding: 10px 30px;
 }
 
-.fab-main-white:hover {
-  background-color: $white-hover;
+.fab-main-blue:hover {
+  background-color: $blue-hover;
 }
 
 .elevated-blue {
@@ -100,6 +103,10 @@ $lightblue-grad-hover: #bcd1da;
   color: $white;
   font-weight: 800;
   padding: 4px 22px;
+}
+
+.ghost-white:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 }
 
 // This is used when a ghost button is with another button, it makes the sizes line up.
