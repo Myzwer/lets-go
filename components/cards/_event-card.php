@@ -15,6 +15,11 @@
 ?>
 
 <div class="bg-white col-span-12 <?php echo $args['column_span_class']; ?> mx-5 mb-8 bg-gray-light shadow-xl rounded-xl relative flex flex-col">
+
+    <div class="hidden xl:inline-block absolute right-0 bottom-0 z-0 opacity-5">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/src/img/triangle-2.png" alt="">
+    </div>
+
     <?php if (has_post_thumbnail()) : ?>
         <img class="rounded-t-lg" src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>" alt="<?php the_title_attribute(); ?>">
     <?php endif; ?>
@@ -49,14 +54,19 @@
                 <h4>Outdoor Event</h4>
             </div>
 
-<?php
-// Display total spaces remaining for this event
-//echo '<p>Total spaces remaining: ' . get_post_meta(get_the_ID(), '????', true) . '</p>';
-?>
+            <div class="col-span-4 text-center">
+                <div class="text-5xl">
+
+                    <?php
+
+                    //
+                    echo $slots->spaces_remaining();
 
 
-
-
+                    ?>
+                </div>
+                <h4>Slots Left</h4>
+            </div>
 
         </div>
     </div>
@@ -67,4 +77,3 @@
         </div>
     </div>
 </div>
-
