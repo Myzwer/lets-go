@@ -14,10 +14,20 @@
  */
 ?>
 
+<?php
+// Get the passed variables
+$slots = get_query_var('slots');
+$counter = get_query_var('counter');
+$image_paths = get_query_var('image_paths');
+
+// Get the image path based on the counter
+$image_path = get_template_directory_uri() . '/assets/src/img/' . $image_paths[$counter];
+?>
+
 <div class="bg-white col-span-12 <?php echo $args['column_span_class']; ?> mx-5 mb-8 bg-gray-light shadow-xl rounded-xl relative flex flex-col">
 
     <div class="hidden xl:inline-block absolute right-0 bottom-0 z-0 opacity-5">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/src/img/triangle-2.png" alt="">
+        <img src="<?php echo $image_path; ?>" alt="">
     </div>
 
     <?php if (has_post_thumbnail()) : ?>
@@ -71,9 +81,10 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-12 rounded-bl-xl">
-        <div class="col-span-12 text-center bg-gray-dark rounded-b-xl">
-            <a class="block text-lg uppercase py-3 text-white font-bold" href="<?php the_permalink(); ?>">Register</a>
+
+    <div class="grid grid-cols-12 rounded-bl-xl z-5">
+        <div class="col-span-12 text-center bg-gray-dark rounded-b-xl block pb-5">
+            <a class="fab-main inline-block" href="<?php the_permalink(); ?>">Register</a>
         </div>
     </div>
 </div>

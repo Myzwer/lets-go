@@ -14,10 +14,13 @@
 
 get_header(); ?>
 
+    <!-- Start Particles-->
+    <div id="particles-js"></div>
+    <!-- End particles -->
 
     <!-- Start Body Section -->
-    <div class="bg-white-gradient">
-    <div class="2xl:w-9/12 max-w-screen-2xl mx-auto grid grid-cols-12 pt-5 xl:p-5 gap-4 xl:gap-10">
+    <div class="bg-blue">
+    <div class="2xl:w-9/12 max-w-screen-2xl mx-auto grid grid-cols-12 pt-5 xl:p-5 gap-4 xl:gap-10 z-10 relative">
         <div class="col-span-12 xl:col-span-4 xl:col-span-4 mx-5">
             <div class="bg-white p-5 rounded-xl shadow-xl">
                 <h3 class="capitalize font-bold text-3xl pb-3">Filter Events</h3>
@@ -44,11 +47,20 @@ get_header(); ?>
                     'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
                 );
 
+                // Define an array of image paths (these are the decor images for the cards)
+                $image_paths = array(
+                    'triangle-1.png',
+                    'triangle-2.png',
+                    'triangle-1.png',
+                    'triangle-2.png'
+                );
+
                 // The Query
                 $events = new WP_Query($args);
 
                 // The Loop
                 if ( $events->have_posts() ) {
+                    $counter = 0; // Initialize a counter variable for looping backgrounds
                     while ( $events->have_posts() ) {
                         $events->the_post();
 
@@ -60,10 +72,23 @@ get_header(); ?>
                         if ( $slots ) :
                             // Pass the event object to the template partial along with additional data
                             set_query_var( 'slots', $slots );
+
+                            // Pass the counter and image paths array to the template partial
+                            set_query_var('counter', $counter);
+                            set_query_var('image_paths', $image_paths);
+
                             $size_select = array(
                                 'column_span_class' => 'lg:col-span-6'
                             );
                             get_template_part( 'components/cards/_event-card', null, $size_select );
+
+                            // Increment the counter
+                            $counter++;
+
+                            // Reset the counter if it exceeds the number of image paths
+                            if ($counter >= count($image_paths)) {
+                                $counter = 0;
+                            }
                         endif;
                     }
                 } else { ?>
