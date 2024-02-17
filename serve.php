@@ -26,6 +26,8 @@ get_header(); ?>
                 <h3 class="capitalize font-bold text-3xl pb-3">Filter Events</h3>
                 <div id="primary">
                     <?php
+                    // Filter everything plugin.
+                    // All settings are configured in WP_Admin, save for the SCSS file with the same name.
                     echo do_shortcode('[fe_widget]');
                     ?>
                 </div>
@@ -38,6 +40,7 @@ get_header(); ?>
 
                 <?php
                 // WP_Query arguments
+                // 'espresso_events' is the custom post type per their docs.
                 $args = array(
                     'post_type' => array('espresso_events'),
                     'post_status' => array('publish'),
@@ -47,7 +50,9 @@ get_header(); ?>
                     'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
                 );
 
-                // Define an array of image paths (these are the decor images for the cards)
+                // Define an array of image paths (these are the decor images for the cards).
+                // In the card partial we declare the path as '/assets/src/img/', so this just needs the file name.
+                // Just make sure the file ends up in that file path.
                 $image_paths = array(
                     'triangle-1.png',
                     'triangle-2.png',
@@ -60,15 +65,18 @@ get_header(); ?>
 
                 // The Loop
                 if ( $events->have_posts() ) {
+
                     $counter = 0; // Initialize a counter variable for looping backgrounds
+
+                    // Loop the $events and display them
                     while ( $events->have_posts() ) {
                         $events->the_post();
 
                         // Get the Event Espresso event object associated with the current post
-                        // // https://github.com/eventespresso/event-espresso-core/blob/master/docs/G--Model-System/model-querying.md
+                        // https://github.com/eventespresso/event-espresso-core/blob/master/docs/G--Model-System/model-querying.md
                         $slots = EEM_Event::instance()->get_one_by_ID( get_the_ID() );
 
-                        // If there is an associated event object
+                        // If there is an associated event object from the EE model
                         if ( $slots ) :
                             // Pass the event object to the template partial along with additional data
                             set_query_var( 'slots', $slots );
@@ -77,10 +85,8 @@ get_header(); ?>
                             set_query_var('counter', $counter);
                             set_query_var('image_paths', $image_paths);
 
-                            $size_select = array(
-                                'column_span_class' => 'lg:col-span-6'
-                            );
-                            get_template_part( 'components/cards/_event-card', null, $size_select );
+                            // Pull in the actual template partial that the card uses.
+                            get_template_part( 'components/cards/_event-card');
 
                             // Increment the counter
                             $counter++;

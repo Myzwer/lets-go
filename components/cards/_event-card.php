@@ -20,24 +20,27 @@ $slots = get_query_var('slots');
 $counter = get_query_var('counter');
 $image_paths = get_query_var('image_paths');
 
-// Get the image path based on the counter
+// Get the image path based on the counter. This will generate the absolute URL of the image and save it to $image_path
 $image_path = get_template_directory_uri() . '/assets/src/img/' . $image_paths[$counter];
 ?>
 
-<div class="bg-white col-span-12 <?php echo $args['column_span_class']; ?> mx-5 mb-8 bg-gray-light shadow-xl rounded-xl relative flex flex-col">
+<div class="bg-white col-span-12 md:col-span-6 mx-5 mb-8 bg-gray-light shadow-xl rounded-xl relative flex flex-col">
 
+    <!-- Background / decor image -->
     <div class="hidden xl:inline-block absolute right-0 bottom-0 z-0 opacity-5">
         <img src="<?php echo $image_path; ?>" alt="">
     </div>
 
+    <!-- Thumbnail Image  -->
     <?php if (has_post_thumbnail()) : ?>
         <img class="rounded-t-lg" src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>" alt="<?php the_title_attribute(); ?>">
     <?php endif; ?>
+
     <div class="p-5 flex-grow">
         <h2 class="text-xl md:text-2xl font-bold capitalize"><?php the_title(); ?></h2>
         <p class="pb-3"><?php the_excerpt(); ?></p>
-        <div class="grid grid-cols-12 pt-10">
 
+        <div class="grid grid-cols-12 pt-10">
             <?php
             // Check if the event is assigned the term 'family-friendly' in the custom taxonomy 'espresso_event_categories'
             // and assign it the appropriate opacity for true or not.
@@ -66,13 +69,10 @@ $image_path = get_template_directory_uri() . '/assets/src/img/' . $image_paths[$
 
             <div class="col-span-4 text-center">
                 <div class="text-5xl">
-
                     <?php
-
-                    //
+                    // Uses the EE model that is passed in through serve.php.
+                    // https://eventespresso.com/topic/how-do-i-display-the-total-number-of-tickets-remaining-for-each-event/#post-352164
                     echo $slots->spaces_remaining();
-
-
                     ?>
                 </div>
                 <h4>Slots Left</h4>
