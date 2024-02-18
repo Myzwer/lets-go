@@ -22,6 +22,12 @@ $image_paths = get_query_var('image_paths');
 
 // Get the image path based on the counter. This will generate the absolute URL of the image and save it to $image_path
 $image_path = get_template_directory_uri() . '/assets/src/img/' . $image_paths[$counter];
+
+// Get the post ID for the current event
+$post_id = get_the_ID();
+
+// Assigned taxonomy term hide or not. See doc block in /includes/quick_functions.php for full details.
+assign_hide_term_to_event($post_id, $slots);
 ?>
 
 <div class="bg-white col-span-12 md:col-span-6 mx-5 mb-8 bg-gray-light shadow-xl rounded-xl relative flex flex-col">

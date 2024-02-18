@@ -43,7 +43,7 @@ get_header(); ?>
                 // 'espresso_events' is the custom post type per their docs.
                 $args = array(
                     'post_type' => array('espresso_events'),
-                    'post_status' => array('publish'),
+                    'post_status' => array('publish', 'sold_out'),
                     'nopaging' => false,
                     'order' => 'DESC',
                     'orderby' => 'date',

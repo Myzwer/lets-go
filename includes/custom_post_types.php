@@ -5,6 +5,7 @@
  * Defines custom post types and taxonomies for the site.
  * - Custom Taxonomy for Event Location
  * - Custom Taxonomy for Event Type
+ * - Custom Taxonomy for Event Capacity
  *
  * Usage: These custom post types are linked in functions.php and used in WP_Admin.
  * They are used by the Event Espresso plugin, mostly for filtering reasons.
@@ -95,3 +96,44 @@ function custom_taxonomy_event_type() {
 
 }
 add_action( 'init', 'custom_taxonomy_event_type', 0 );
+
+
+// Register Custom Taxonomy
+function custom_taxonomy_event_capacity() {
+
+    $labels = array(
+        'name'                       => _x( 'Event Capacity', 'Taxonomy General Name', 'text_domain' ),
+        'singular_name'              => _x( 'Event Capacity', 'Taxonomy Singular Name', 'text_domain' ),
+        'menu_name'                  => __( 'Event Capacity', 'text_domain' ),
+        'all_items'                  => __( 'All Event Capacities', 'text_domain' ),
+        'parent_item'                => __( 'Parent Event Capacity', 'text_domain' ),
+        'parent_item_colon'          => __( 'Parent Event Capacity:', 'text_domain' ),
+        'new_item_name'              => __( 'New Event Capacity Name', 'text_domain' ),
+        'add_new_item'               => __( 'Add New Event Capacity', 'text_domain' ),
+        'edit_item'                  => __( 'Edit Event Capacity', 'text_domain' ),
+        'update_item'                => __( 'Update Event Capacity', 'text_domain' ),
+        'view_item'                  => __( 'View Event Capacity', 'text_domain' ),
+        'separate_items_with_commas' => __( 'Separate event capacities with commas', 'text_domain' ),
+        'add_or_remove_items'        => __( 'Add or remove event capacities', 'text_domain' ),
+        'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+        'popular_items'              => __( 'Popular Event Capacities', 'text_domain' ),
+        'search_items'               => __( 'Search Event Capacities', 'text_domain' ),
+        'not_found'                  => __( 'Not Found', 'text_domain' ),
+        'no_terms'                   => __( 'No event capacities', 'text_domain' ),
+        'items_list'                 => __( 'Event capacities list', 'text_domain' ),
+        'items_list_navigation'      => __( 'Event capacities list navigation', 'text_domain' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+        'rewrite'                    => array( 'slug' => 'event-capacity' ), // Set the slug here
+    );
+    register_taxonomy( 'event_capacity', array( 'espresso_events' ), $args );
+
+}
+add_action( 'init', 'custom_taxonomy_event_capacity', 0 );
