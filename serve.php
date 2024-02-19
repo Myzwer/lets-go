@@ -44,29 +44,18 @@ get_header(); ?>
                 $args = array(
                     'post_type' => array('espresso_events'),
                     'post_status' => array('publish', 'sold_out'),
-                    'nopaging' => false,
+                    'nopaging' => true,
                     'order' => 'DESC',
                     'orderby' => 'date',
                     'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
                 );
 
-                // Define an array of image paths (these are the decor images for the cards).
-                // In the card partial we declare the path as '/assets/src/img/', so this just needs the file name.
-                // Just make sure the file ends up in that file path.
-                $image_paths = array(
-                    'triangle-1.png',
-                    'triangle-2.png',
-                    'triangle-1.png',
-                    'triangle-2.png'
-                );
 
                 // The Query
                 $events = new WP_Query($args);
 
                 // The Loop
                 if ( $events->have_posts() ) {
-
-                    $counter = 0; // Initialize a counter variable for looping backgrounds
 
                     // Loop the $events and display them
                     while ( $events->have_posts() ) {
@@ -81,20 +70,10 @@ get_header(); ?>
                             // Pass the event object to the template partial along with additional data
                             set_query_var( 'slots', $slots );
 
-                            // Pass the counter and image paths array to the template partial
-                            set_query_var('counter', $counter);
-                            set_query_var('image_paths', $image_paths);
 
                             // Pull in the actual template partial that the card uses.
                             get_template_part( 'components/cards/_event-card');
 
-                            // Increment the counter
-                            $counter++;
-
-                            // Reset the counter if it exceeds the number of image paths
-                            if ($counter >= count($image_paths)) {
-                                $counter = 0;
-                            }
                         endif;
                     }
                 } else { ?>

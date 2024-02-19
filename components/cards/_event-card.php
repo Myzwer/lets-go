@@ -17,11 +17,6 @@
 <?php
 // Get the passed variables
 $slots = get_query_var('slots');
-$counter = get_query_var('counter');
-$image_paths = get_query_var('image_paths');
-
-// Get the image path based on the counter. This will generate the absolute URL of the image and save it to $image_path
-$image_path = get_template_directory_uri() . '/assets/src/img/' . $image_paths[$counter];
 
 // Get the post ID for the current event
 $post_id = get_the_ID();
@@ -31,12 +26,6 @@ assign_hide_term_to_event($post_id, $slots);
 ?>
 
 <div class="bg-white col-span-12 md:col-span-6 mx-5 mb-8 bg-gray-light shadow-xl rounded-xl relative flex flex-col">
-
-    <!-- Background / decor image -->
-    <div class="hidden xl:inline-block absolute right-0 bottom-0 z-0 opacity-5">
-        <img src="<?php echo $image_path; ?>" alt="">
-    </div>
-
     <!-- Thumbnail Image  -->
     <?php if (has_post_thumbnail()) : ?>
         <img class="rounded-t-lg" src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>" alt="<?php the_title_attribute(); ?>">
