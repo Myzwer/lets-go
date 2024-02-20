@@ -45,8 +45,8 @@ get_header(); ?>
                     'post_type' => array('espresso_events'),
                     'post_status' => array('publish', 'sold_out'),
                     'nopaging' => true,
-                    'order' => 'DESC',
-                    'orderby' => 'date',
+                    'orderby' => 'title', // Order by title alphabetically
+                    'order' => 'ASC', // Ascending order (A-Z)
                     'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
                 );
 
