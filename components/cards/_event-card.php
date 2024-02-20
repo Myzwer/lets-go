@@ -63,9 +63,8 @@ assign_hide_term_to_event($post_id, $slots);
             }
             ?>
         </h2>
+
         <p class="pb-3"><?php the_excerpt(); ?></p>
-
-
         <?php
         // Check if the event is assigned either 'indoor' or 'outdoor' in the custom taxonomy 'espresso_event_categories'
         // and assigns the appropriate icon and text.
