@@ -43,6 +43,14 @@ $orange: #d58163;
   color: $white;
 }
 
+.tckt-slctr-tbl-td-name {
+  padding: 10px;
+}
+
+.tckt-slctr-tbl-td-qty select {
+  color: #333333;
+}
+
 //hide extra details section
 .display-tckt-slctr-tkt-details {
   display: none;
