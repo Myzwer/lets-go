@@ -67,32 +67,46 @@ assign_hide_term_to_event($post_id, $slots);
 
 
         <?php
+        // Check if the event is assigned either 'indoor' or 'outdoor' in the custom taxonomy 'espresso_event_categories'
+        // and assigns the appropriate icon and text.
+
+        // Declare the variables so they don't throw an error if my content editors forget to select a term.
+        $icon = null;
+        $text = null;
+
+        if (has_term('outdoor', 'espresso_event_categories', get_the_ID())) {
+            $icon = '<i class="fa-solid fa-clouds-sun"></i>';
+            $text = 'Outdoor Event';
+        }
+        if (has_term('indoor', 'espresso_event_categories', get_the_ID())) {
+            $icon = '<i class="fa-solid fa-house-chimney"></i>';
+            $text = 'Indoor Event';
+        }
+
         // Check if the event is assigned the term 'family-friendly' in the custom taxonomy 'espresso_event_categories'
         // and assign it the appropriate opacity for true or not.
-        $ff = (has_term('family-friendly', 'espresso_event_categories', get_the_ID())) ? 'opacity-2' : 'opacity-10';
-        // Check if the event is assigned the term 'outdoor in the custom taxonomy 'espresso_event_categories' and
-        // assign it the appropriate opacity for true or not.
-        $outdoor = (has_term('outdoor', 'espresso_event_categories', get_the_ID())) ? 'opacity-2' : 'opacity-10';
+        $ff = (has_term('family-friendly', 'espresso_event_categories', get_the_ID())) ? 'opacity-100' : 'opacity-0';
         ?>
-        <div class="grid grid-cols-12 pt-5 <?php echo $ff; ?>">
+
+        <div class="grid grid-cols-12 pt-5">
             <div class="col-span-2 text-center">
-                <div class="text-5xl">
-                    <i class="fa-solid fa-family"></i>
+                <div class="text-4xl">
+                    <?php echo $icon; ?>
                 </div>
             </div>
-            <div class="col-span-10 pt-4 pl-1">
-                <h4>Family Friendly</h4>
+            <div class="col-span-10 pt-2 pl-1">
+                <h4><?php echo $text; ?></h4>
             </div>
         </div>
 
-        <div class="grid grid-cols-12 pt-5 <?php echo $outdoor; ?>">
+        <div class="grid grid-cols-12 pt-5 <?php echo $ff; ?>">
             <div class="col-span-2 text-center">
-                <div class="text-5xl">
-                    <i class="fa-solid fa-clouds-sun"></i>
+                <div class="text-4xl">
+                    <i class="fa-solid fa-family"></i>
                 </div>
             </div>
-            <div class="col-span-10 pt-4 pl-1">
-                <h4>Outdoor Event</h4>
+            <div class="col-span-10 pt-2 pl-1">
+                <h4>Family Friendly</h4>
             </div>
         </div>
     </div>
