@@ -17,8 +17,18 @@ $blue: #4c52c7;
 $white: #f8f1ee;
 $orange: #d58163;
 
-.event-content p {
+.desc-hide p {
   display: none;
+}
+
+.desc-show {
+  .event-tickets {
+    display: none;
+  }
+
+  p {
+    font-size: 1.3em;
+  }
 }
 
 .checkbox-dropdown-selector-wrap-dv button {
