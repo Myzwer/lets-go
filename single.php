@@ -10,12 +10,24 @@
 get_header();
 ?>
 
-<?php get_template_part('components/headers/_simple'); ?>
+    <!-- Start Particles-->
+<!--        <div id="particles-js"></div>-->
+    <!-- End particles -->
 
 
     <div class="bg-white text-black relative">
-        <div class="grid grid-cols-12 gap-4 pb-10 px-5">
-            <div class="col-span-12 md:col-span-10 lg:col-start-3 lg:col-span-8">
+        <div class="grid grid-cols-12 lg:max-w-7xl mx-auto gap-4 px-5 z-5 relative pt-10 md:pt-20">
+            <div class="col-span-12 md:col-span-8">
+                <h2 class="text-black text-3xl md:text-5xl font-bold uppercase"><?php echo get_the_title(); ?></h2>
+                <!-- Desc-show hides everything but the description.  -->
+                <div class="desc-show">
+                    <?php the_content(); ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 lg:max-w-7xl mx-auto gap-4 pb-10 px-5 z-5 relative ">
+            <div class="col-span-12 md:col-span-8">
                 <div class="mt-5">
                     <div class="desc-hide">
                         <?php the_content(); ?>
@@ -31,11 +43,10 @@ get_header();
                      height: 20vh; background-size: cover;">
         </div>
     </div>
-    <!-- END SECTION 2 -->
 
-    <!-- START SECTION 3 -->
-    <div class="bg-blue relative -mt-1 z-10">
 
+    <!-- START DETAILS -->
+    <div class="bg-blue relative md:-mt-24 z-10">
         <div class="grid grid-cols-12 lg:max-w-7xl gap-4 relative z-10 mx-6 xl:mx-auto">
 
             <!-- Title -->
@@ -45,45 +56,32 @@ get_header();
                 </div>
             </div>
 
-            <div class="col-span-12 mt-5">
-                <div class="grid grid-cols-12">
-                    <div class="col-span-12 mt-5 text-white ">
-                        <div class="desc-show">
-                        <?php the_content(); ?>
-                        </div>
-                    </div>
+            <!-- Icons + Content -->
+            <div class="col-span-12 mt-3">
+                <div class="flex items-center text-white">
+                    <i class="fa-solid fa-location-dot text-4xl flex-none w-12"></i>
+                    <p class="ml-5 text-lg text-white font-bold"><?php the_field('address'); ?></p>
                 </div>
             </div>
 
-            <!-- Content -->
-            <div class="col-span-12 mt-5">
-                <div class="grid grid-cols-12">
-                    <div class="col-span-12 mt-5 text-4xl text-white ">
-                        <i class="fa-solid fa-location-dot"></i> <p class="pt-2 text-lg text-white font-bold text-lef inline"><?php the_field('address'); ?></p>
-                    </div>
+            <div class="col-span-12 mt-3">
+                <div class="flex items-center text-white">
+                    <i class="fa-solid fa-family text-4xl flex-none w-12"></i>
+                    <p class="ml-5 text-lg text-white font-bold"><?php the_field('children_restrictions'); ?></p>
                 </div>
             </div>
 
-            <div class="col-span-12 mt-5">
-                <div class="grid grid-cols-12">
-                    <div class="col-span-12 mt-5 text-4xl text-white ">
-                        <i class="fa-solid fa-family"></i> <p class="pt-2 text-lg text-white font-bold text-lef inline"><?php the_field('children_restrictions'); ?></p>
-                    </div>
+            <div class="col-span-12 mt-3">
+                <div class="flex items-center text-white">
+                    <i class="fa-solid fa-clouds-sun text-4xl flex-none w-12"></i>
+                    <p class="ml-5 text-lg text-white font-bold"><?php the_field('weather'); ?></p>
                 </div>
             </div>
 
-            <div class="col-span-12 mt-5">
-                <div class="grid grid-cols-12">
-                    <div class="col-span-12 mt-5 text-4xl text-white ">
-                        <i class="fa-solid fa-clouds-sun"></i> <p class="pt-2 text-lg text-white font-bold text-lef inline"><?php the_field('weather'); ?></p>
-                    </div>
-                </div>
-            </div>
 
             <div class="col-span-12 text-center mx-auto mt-5 prose text-white font-bold">
                 <?php the_field('choose_serve_text', 'option'); ?>
             </div>
-
 
 
         </div>

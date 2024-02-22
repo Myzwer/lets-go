@@ -14,8 +14,41 @@
 $primary: #2e3136;
 $background: #f8f1ee;
 $blue: #4c52c7;
+$blue-stripe: #282fbe;
 $white: #f8f1ee;
 $orange: #d58163;
+
+.event-tickets {
+  background-color: $blue;
+  border-radius: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  form {
+    display: table !important;
+    width: 100%;
+  }
+
+  thead tr {
+    width: 100%;
+  }
+
+  td {
+    background-color: $blue-stripe;
+  }
+
+  .tkt-slctr-tbl thead th,
+  .tckt-slctr-tbl-tr > td {
+    padding-left: 13px;
+  }
+
+  .tkt-slctr-tbl {
+    margin-bottom: 0;
+  }
+
+  .tkt-slctr-tbl-wrap-dv {
+    margin-bottom: 0;
+  }
+}
 
 .desc-hide p {
   display: none;
@@ -49,7 +82,6 @@ $orange: #d58163;
 .tkt-slctr-tbl tbody {
   background-color: $blue;
   border: 0;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   color: $white;
 }
 
@@ -93,28 +125,22 @@ $orange: #d58163;
 .ticket-selector-submit-btn-wrap input {
   align-self: center;
   appearance: none;
-  background: $orange;
+  background: $white;
   border: 0;
   border-radius: 140px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   box-sizing: border-box;
-  color: #ffffff;
+  color: #333333;
   cursor: pointer;
   display: flex;
   font-family: "Druk Text Wide", sans-serif;
-  font-size: 1.2em;
-  letter-spacing: 2px;
+  font-size: 1em;
   line-height: 1;
   margin: 20px;
-  padding: 0.6em 2em;
+  padding: 0.6em 1em;
   text-align: center;
   text-decoration: none;
   transition: 0.3s ease-in-out;
-  background: {
-    image: linear-gradient(45deg, $blue 50%, transparent 50%);
-    position: 100%;
-    size: 400%;
-  }
 
   &:hover {
     background-position: 0;
@@ -127,6 +153,15 @@ $orange: #d58163;
 
   &:active {
     border: 0;
+  }
+}
+
+// shrink dat button
+@media screen and (min-width: 40em) {
+  .ticket-selector-submit-btn-wrap input {
+    font-size: 1.2em;
+    margin: 20px;
+    padding: 0.6em 2em;
   }
 }
 

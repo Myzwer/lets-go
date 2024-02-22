@@ -21,6 +21,8 @@
 
 <div class="bg-white-gradient h-52 relative">
     <div class="content-middle text-center">
+        <div class="drop-shadow-orange">
         <h2 class="text-black text-xl md:text-5xl font-bold uppercase"><?php echo get_the_title(); ?></h2>
+        </div>
     </div>
 </div>
