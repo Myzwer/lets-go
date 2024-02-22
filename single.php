@@ -17,7 +17,7 @@ get_header();
         <div class="grid grid-cols-12 gap-4 pb-10 px-5">
             <div class="col-span-12 md:col-span-10 lg:col-start-3 lg:col-span-8">
                 <div class="mt-5">
-                    <div class="table-auto">
+                    <div class="desc-hide">
                         <?php the_content(); ?>
                     </div>
                 </div>
@@ -45,45 +45,47 @@ get_header();
                 </div>
             </div>
 
+            <div class="col-span-12 mt-5">
+                <div class="grid grid-cols-12">
+                    <div class="col-span-12 mt-5 text-white ">
+                        <div class="desc-show">
+                        <?php the_content(); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Content -->
             <div class="col-span-12 mt-5">
                 <div class="grid grid-cols-12">
-                    <div class="col-span-2 mt-5 text-4xl">
-                    <i class="fa-solid fa-location-dot"></i>
-                    </div>
-
-                    <div class="col-span-8 mt-5">
-                    <p class="pt-2 text-lg text-white font-bold text-left"><?php the_field('address'); ?></p>
+                    <div class="col-span-12 mt-5 text-4xl text-white ">
+                        <i class="fa-solid fa-location-dot"></i> <p class="pt-2 text-lg text-white font-bold text-lef inline"><?php the_field('address'); ?></p>
                     </div>
                 </div>
             </div>
 
             <div class="col-span-12 mt-5">
-                <div class="pb-5">
-                    <div class="drop-shadow">
-                        <h2 class="text-2xl druk text-white">Family Restrictions</h2>
+                <div class="grid grid-cols-12">
+                    <div class="col-span-12 mt-5 text-4xl text-white ">
+                        <i class="fa-solid fa-family"></i> <p class="pt-2 text-lg text-white font-bold text-lef inline"><?php the_field('children_restrictions'); ?></p>
                     </div>
-                    <p class="pt-2 text-lg text-white font-bold"><?php the_field('children_restrictions'); ?></p>
                 </div>
             </div>
 
             <div class="col-span-12 mt-5">
-                <div class="pb-5">
-                    <div class="drop-shadow">
-                        <h2 class="text-2xl druk text-white">Weather Details</h2>
+                <div class="grid grid-cols-12">
+                    <div class="col-span-12 mt-5 text-4xl text-white ">
+                        <i class="fa-solid fa-clouds-sun"></i> <p class="pt-2 text-lg text-white font-bold text-lef inline"><?php the_field('weather'); ?></p>
                     </div>
-                    <p class="pt-2 text-lg text-white font-bold"><?php the_field('weather'); ?></p>
                 </div>
             </div>
 
-            <!-- Button-->
-            <div class="col-span-12 mb-5">
-                <a href="<?php the_field('serve_link', 'options'); ?>" target="_blank">
-                    <button class="ghost-white">
-                        <?php the_field("button_text"); ?>
-                    </button>
-                </a>
+            <div class="col-span-12 text-center mx-auto mt-5 prose text-white font-bold">
+                <?php the_field('choose_serve_text', 'option'); ?>
             </div>
+
+
+
         </div>
 
         <!-- The Wave -->
