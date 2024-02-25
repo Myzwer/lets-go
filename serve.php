@@ -20,8 +20,10 @@ get_header(); ?>
 
     <!-- Start Body Section -->
     <div class="bg-blue">
+
     <div class="2xl:w-9/12 max-w-screen-2xl mx-auto grid grid-cols-12 pt-5 xl:p-5 gap-4 xl:gap-10 z-10 relative">
-        <div class="col-span-12 xl:col-span-4 xl:col-span-4 mx-5">
+
+        <div class="col-span-12 xl:col-span-4 mx-5">
             <div class="bg-white p-5 rounded-xl shadow-xl">
                 <h3 class="capitalize font-bold text-3xl pb-3">Filter Events</h3>
                 <div id="primary">
@@ -34,9 +36,12 @@ get_header(); ?>
             </div>
         </div>
 
-
         <div class="col-span-12 xl:col-span-8">
             <div class="grid grid-cols-12 gap-4 md:gap-4">
+
+                <?php
+                get_template_part( 'components/cards/_custom-event-card' );
+                ?>
 
                 <?php
                 // WP_Query arguments
