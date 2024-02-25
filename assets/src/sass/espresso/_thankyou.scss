@@ -1,0 +1,58 @@
+/**
+ * Event Espresso
+ * =================================
+ * This is an event Espresso override file. The plugin ships with a ton of styles built in that need overwritten.
+ * These styles override the styles found on thank-you.php.
+ * It's possible that some of these styles effect other pages, but it should be mostly contained.
+ *
+ *
+ *
+ */
+
+@use "colors";
+// Not my circus...
+/* stylelint-disable selector-class-pattern, selector-max-id, selector-max-compound-selectors, selector-no-qualifying-type */
+
+// Confirmation Page
+.ee-attention {
+  display: none;
+}
+
+.tiny-text * {
+  color: #222222;
+}
+
+.thank-you {
+  h3 {
+    font-size: 1.5em;
+    font-weight: 800;
+  }
+
+  h5 {
+    padding-bottom: 20px;
+  }
+
+  thead > tr > :nth-child(2),
+  tbody > tr > :nth-child(2) {
+    display: none;
+  }
+
+  th {
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: 800;
+  }
+
+  td {
+    font-size: 1em;
+    padding-bottom: 10px;
+  }
+
+  .small-text {
+    padding-top: 30px;
+    text-align: left;
+  }
+}
+
+// not my monkeys
+/* stylelint-enable selector-class-pattern, selector-max-id, selector-max-compound-selectors, selector-no-qualifying-type */
