@@ -48,7 +48,7 @@ assign_hide_term_to_event($post_id, $slots);
 
     <!-- Start Card Content -->
     <div class="px-10 py-5 flex-grow -mt-10">
-        <h2 class="text-xl md:text-xl font-bold uppercase druk"><?php the_title(); ?></h2>
+        <h2 class="text-xl md:text-xl font-bold uppercase druk pt-3"><?php the_title(); ?></h2>
         <h2 class="text-sm font-bold capitalize druk">
             <i class="fa-solid fa-location-dot"></i>
             <?php
