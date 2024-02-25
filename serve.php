@@ -15,7 +15,7 @@
 get_header(); ?>
 
     <!-- Start Particles-->
-    <div id="particles-js"></div>
+    <div id="particles-js-long"></div>
     <!-- End particles -->
 
     <!-- Start Body Section -->

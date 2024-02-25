@@ -48,11 +48,15 @@ $(function () {
   });
 });
 
-// PARTICLES
-document.addEventListener("DOMContentLoaded", function (event) {
-  const particles = document.getElementById("particles-js");
+/**
+ * Initializes particles in a container with the given ID using particlesJS library.
+ * @param {string} containerId - The ID of the container element where particles will be initialized.
+ * @return {void}
+ */
+function initializeParticles(containerId) {
+  const particles = document.getElementById(containerId);
   if (particles) {
-    particlesJS("particles-js", {
+    particlesJS(containerId, {
       particles: {
         number: { value: 80, density: { enable: true, value_area: 800 } },
         color: { value: "#d58163" },
@@ -114,4 +118,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
       retina_detect: true,
     });
   }
+}
+
+// Call the function for the first ID
+document.addEventListener("DOMContentLoaded", function (event) {
+  initializeParticles("particles-js");
+});
+
+// Call the function for the second ID
+document.addEventListener("DOMContentLoaded", function (event) {
+  initializeParticles("particles-js-long");
 });
