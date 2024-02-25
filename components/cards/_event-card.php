@@ -2,10 +2,10 @@
 /**
  * Event Card Template Partial
  *
- * This file generates cards for the frontpage based on data they it gets from the event espresso plugin.
+ * This file generates cards for the serve page based on data the data it gets from the event espresso plugin.
  *
  *
- * Usage: get_template_part( 'components/cards/sample-card' );
+ * Usage: get_template_part( 'components/cards/_event-card' );
  *
  * @package WordPress
  * @subpackage Lets_Go_BBY
