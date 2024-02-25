@@ -30,6 +30,17 @@ get_header(); ?>
             </div>
         </div>
 
+        <div class="grid grid-cols-12 lg:max-w-7xl mx-auto gap-4 pb-10 px-5 z-5 relative ">
+            <div class="col-span-12 md:col-span-6 md:col-start-4">
+                <div class="mt-5">
+                    <?php
+                    // Add the "Don't bring too many people" announcement
+                    get_template_part( 'components/blocks/_announcement' );
+                    ?>
+                </div>
+            </div>
+        </div>
+
 
 
 
