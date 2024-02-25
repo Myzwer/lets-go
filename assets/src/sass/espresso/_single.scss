@@ -45,6 +45,12 @@
   .tkt-slctr-tbl-wrap-dv {
     margin-bottom: 0;
   }
+
+  @media (max-width: 400px) {
+    .tkt-slctr-tbl {
+      display: table;
+    }
+  }
 }
 
 .desc-show {

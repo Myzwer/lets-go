@@ -18,7 +18,7 @@ get_header();
     <div class="bg-white text-black relative">
         <div class="grid grid-cols-12 lg:max-w-7xl mx-auto gap-4 px-5 z-5 relative pt-10 md:pt-20">
             <div class="col-span-12 md:col-span-8">
-                <h2 class="text-black text-3xl md:text-5xl font-bold uppercase"><?php echo get_the_title(); ?></h2>
+                <h2 class="text-black text-3xl md:text-5xl font-bold uppercase pb-3"><?php echo get_the_title(); ?></h2>
                 <!-- Desc-show hides everything but the description.  -->
                 <div class="desc-show">
                     <?php the_content(); ?>
@@ -36,6 +36,19 @@ get_header();
             </div>
         </div>
 
+
+        <div class="grid grid-cols-12 lg:max-w-7xl mx-auto gap-4 pb-10 px-5 z-5 relative ">
+            <div class="col-span-12 md:col-span-8">
+                <div class="mt-5">
+                    <?php
+                    // Add the "Don't bring too many people" announcement
+                    get_template_part( 'components/blocks/_announcement' );
+                    ?>
+                </div>
+            </div>
+        </div>
+
+
         <!-- The Wave -->
         <div class="bg-no-repeat bg-scroll bg-cover relative z-10"
              style="background:
@@ -46,7 +59,7 @@ get_header();
 
 
     <!-- START DETAILS -->
-    <div class="bg-blue relative md:-mt-24 z-10">
+    <div class="bg-blue relative md:-mt-20 z-10">
         <div class="grid grid-cols-12 lg:max-w-7xl gap-4 relative z-10 mx-6 xl:mx-auto">
 
             <!-- Title -->
