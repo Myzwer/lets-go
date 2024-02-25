@@ -142,8 +142,8 @@ select {
 
 // Edit the Details Block
 // Im using 2 instances of "detail" to make the code readable, so that's why SL is disabled
+/* stylelint-disable-next-line */
 .details {
-  /* stylelint-disable-line */
   border-radius: 30px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
