@@ -39,7 +39,7 @@
 <section class="navigation">
     <div class="nav-container">
         <div class="brand">
-            <a href="/frontpage">
+            <a href="/">
                 <!--Company Logo / Branding. Template supports both Text and Logo-->
                 <!-- Foothills Church Logo -->
                 <img src="<?php the_field('foothills_logo_white', 'options'); ?>" alt="Foothills Church Logo">
