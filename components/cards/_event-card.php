@@ -36,14 +36,14 @@ assign_hide_term_to_event($post_id, $slots);
 
     <!-- Slot Counter -->
     <div class="bg-white absolute right-8 top-8 p-3 slot-border shadow-xl">
-        <div class="text-5xl">
+        <div class="text-5xl text-center">
             <?php
             // Uses the EE model that is passed in through serve.php.
             // https://eventespresso.com/topic/how-do-i-display-the-total-number-of-tickets-remaining-for-each-event/#post-352164
             echo $slots->spaces_remaining();
             ?>
         </div>
-        <h4 class='uppercase'>Slots</h4>
+        <h4 class='uppercase text-center'>Slots</h4>
     </div>
 
     <!-- Start Card Content -->
