@@ -40,7 +40,7 @@ get_header(); ?>
             <div class="grid grid-cols-12 gap-4 md:gap-4">
 
                 <?php
-                get_template_part( 'components/cards/_custom-event-card' );
+                get_template_part('components/cards/_custom-event-card');
                 ?>
 
                 <?php
@@ -60,29 +60,34 @@ get_header(); ?>
                 $events = new WP_Query($args);
 
                 // The Loop
-                if ( $events->have_posts() ) {
+                if ($events->have_posts()) {
 
                     // Loop the $events and display them
-                    while ( $events->have_posts() ) {
+                    while ($events->have_posts()) {
                         $events->the_post();
 
                         // Get the Event Espresso event object associated with the current post
                         // https://github.com/eventespresso/event-espresso-core/blob/master/docs/G--Model-System/model-querying.md
-                        $slots = EEM_Event::instance()->get_one_by_ID( get_the_ID() );
+                        $slots = EEM_Event::instance()->get_one_by_ID(get_the_ID());
 
                         // If there is an associated event object from the EE model
-                        if ( $slots ) :
+                        if ($slots) :
                             // Pass the event object to the template partial along with additional data
-                            set_query_var( 'slots', $slots );
+                            set_query_var('slots', $slots);
 
 
                             // Pull in the actual template partial that the card uses.
-                            get_template_part( 'components/cards/_event-card');
+                            get_template_part('components/cards/_event-card');
 
                         endif;
                     }
                 } else { ?>
-                    <h3 class="text-center font-bold">There are no upcoming events.</h3>
+                    <div class="col-span-12 md:col-span-6 relative flex flex-col pt-10">
+                        <h3 class="text-center text-white text-2xl">There are no events that match your criteria.</h3>
+                        <h3 class="text-center font-bold text-white text-md  underline">
+                            <a href="<?php the_field('serve_link', 'options'); ?>">Choose Where You Serve Instead!</a>
+                        </h3>
+                    </div>
                 <?php }
 
                 // Restore original Post Data
